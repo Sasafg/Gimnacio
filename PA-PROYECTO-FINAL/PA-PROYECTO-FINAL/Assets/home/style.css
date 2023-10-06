@@ -1,0 +1,151 @@
+﻿#hero {
+    width: 100%;
+    height: 80vh;
+    background-image: url(../img/mujer.jpg);
+    background-color:aqua; 
+    background-size: cover;
+    position: relative;
+}
+
+    #hero:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #hero .container {
+        padding-top: 72px;
+    }
+
+@media (max-width: 992px) {
+    #hero .container {
+        padding-top: 62px;
+    }
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+#hero h2 {
+    color: #eee;
+    margin: 10px 0 0 0;
+    font-size: 24px;
+}
+
+#hero .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 35px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin-top: 30px;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+    #hero .btn-get-started:hover {
+        background: #5f81e8;
+        border: 2px solid #5f81e8;
+    }
+
+@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero {
+        height: 100vh;
+    }
+
+        #hero h1 {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        #hero h2 {
+            font-size: 18px;
+            line-height: 24px;
+        }
+}
+
+
+#titulo {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 90px;
+    padding: 30px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #131313;
+    letter-spacing: .15em;
+ 
+}
+
+
+#productos{
+    text-align: start;
+
+
+}
+
+#carousel img{
+    position:center;
+    max-width: 350px;
+    max-height:350px;
+    
+}
+
+#carousel{
+
+    position: center;
+    justify-items: center;
+    align-self:center;
+}
+
+
+#shop img{
+    width:100px;
+    height:100px;
+    position:relative;
+   
+
+}
+
+
+#btn {
+    position: center;
+    
+    
+}
+
+#link{
+
+
+    font-size:30px;
+    color:black;
+}
+
+.nav-linkk hover{
+    color: orange;
+}
+
+
+#footer p {
+    background-color: lightsteelblue;
+    text-align: center;
+}

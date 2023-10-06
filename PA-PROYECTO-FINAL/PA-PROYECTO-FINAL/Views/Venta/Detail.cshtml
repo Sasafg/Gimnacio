@@ -1,0 +1,80 @@
+﻿
+@model PA_PROYECTO_FINAL.Models.Venta
+
+
+
+
+<a href="">
+    <img src="~/Assets/img/12.png" class="img-fluid" alt="..."
+         style="height: 300px; width: 600px; justify-content:center; position:relative">
+</a>
+
+<p>
+    <script>
+    document.getElementById("volverInicio").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    });
+    </script>
+</p>
+
+
+<h6>Detalles la Venta #@Model.Id</h6>
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Dia de la Venta</th>
+            <td>@Model.DiaVenta</td>
+        </tr>
+        <tr>
+            <th>SubTotal</th>
+            <td>@String.Format("{0:C}", Model.Subtotal)</td>
+
+        </tr>
+        <tr>
+            <th>IVA</th>
+            <td>@String.Format("{0:C}", Model.Iva)</td>
+
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td>@String.Format("{0:C}", Model.Total)</td>
+            <hr />
+        </tr>
+    </thead>
+</table>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ListaVenta != null)
+        {
+            foreach (var lista in Model.ListaVenta)
+            {
+                <tr>
+                    <td>@lista.Producto.nombreProducto</td>
+
+                    <td>@String.Format("{0:C}", lista.Producto.precio)</td>
+                    <hr />
+                    <td>@lista.Cantidad</td>
+                    <td>@String.Format("{0:C}", lista.Total)</td>
+
+                </tr>
+            }
+        }
+
+
+
+
+    </tbody>
+</table>
+

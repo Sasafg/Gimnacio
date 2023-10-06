@@ -1,0 +1,67 @@
+﻿@using PA_PROYECTO_FINAL.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@model List<Producto>
+
+
+<a href="">
+    <img src="~/Assets/img/index.png" class="img-fluid" alt="..."
+         style="height: 300px; width: 600px; justify-content:center; position:relative">
+</a>
+
+<p>
+
+    <button style="margin:15px"  id="volverInicio" class="btn btn-outline-dark">Volver al Inicio</button>
+
+    <script>
+    document.getElementById("volverInicio").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    });
+    </script>
+
+
+
+
+
+    <button id="Crear" class="btn btn-outline-success">Subir un nuevo producto</button>
+
+    <script>
+        document.getElementById("Crear").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Create", "product")";
+    });
+    </script>
+
+
+</p>
+
+
+<hr />
+
+
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.IdProducto</td>
+            <td>@product.nombreProducto</td>
+            <td>@product.precio</td>
+
+            <td>
+                @Html.ActionLink("Editar Producto", "Edit", new { id = product.IdProducto })
+                @Html.ActionLink("Detalles del Producto", "Details", new { id = product.IdProducto })
+                @Html.ActionLink("Eliminar Producto", "Delete", new { id = product.IdProducto })
+                @Html.ActionLink("Imagenes", "ProductImages", new { id = product.IdProducto })
+            </td>
+        </tr>
+    }
+</table>

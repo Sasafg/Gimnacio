@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "";
+}
+<head>
+    <link rel="stylesheet" href="~/Assets/home/style.css">
+    
+</head>
+
+@if (User.IsInRole("Administrador"))
+{
+    <h2 id="titulo" style="font-size:60px">ADMINISTRADOR DE TAREAS </h2>
+    <hr />
+    <div class="container" style="position: relative; justify-content: center ; align-items: center  ">
+
+
+        <a href="@Url.Action( "Index", "product")">
+            <img src="~/Assets/img/ADMINISTRADOR.png" alt="..." style="width: 300px; height: 300px; position: relative; margin:100px " />
+        </a>
+
+        <a href="@Url.Action("Index", "Venta")">
+            <img src="~/Assets/img/REGISTRO.VENTAS.png" alt="..." style="width: 300px; height: 300px; position: relative; margin:50px " />
+        </a>
+
+
+
+    </div>
+
+    <hr />
+    <h2 id="titulo" style="font-size:60px">LO QUE VEN TUS CLIENTES </h2>
+    <hr />
+}
+
+
+
+<div class="col">
+    @if (!User.Identity.IsAuthenticated)
+    {
+
+        <section id="hero" class="d-flex justify-content-center align-items-center">
+            <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col">
+                    <a href="">
+                        <img src="~/Assets/img/FideFit2.png" class="img-fluid" alt="..."
+                             style="height: 250px; width: 450px; text-align:center">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="">
+                        <img src="~/Assets/img/FideFit8.png" class="img-fluid" alt="..."
+                             style="height: 250px; width: 450px; text-align:center">
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    
+        
+        
+        <marquee behavior="scroll" direction="right" scrolldelay="600" scrollamount="100" style="font-size:30px; text-align: center; margin:20px; color:brown; font-family: 'Century Gothic'; font-weight:800">INSCRIBETE AHORA EN EL MEJOR GYM DE SAN JOSÉ!!</marquee><div class="row row-cols-1 row-cols-md-3 g-4" style="margin:10px; text-align:center;">
+            <div class="col">
+                <div class="card">
+                    <a href=""><img src="~/Assets/img/pr1.jpg" class="img-fluid" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Instructores Profesionales</h5>
+                        <p class="card-text"> Contamos con profesionales capacitados para ayudarte. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <a href=""><img src="~/Assets/img/pr3.jpg" class="img-fluid" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Equipo de Peso</h5>
+                        <p class="card-text">En nuestras instalaciones encontrarás variedad  de mancuernas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <a href=""><img src="~/Assets/img/pr4.jpg" class="img-fluid" alt="..."></a>
+                    <div class="card-body">
+                        <h5 class="card-title">Máquinas de última generación</h5>
+                        <p class="card-text">Utilizá máquinas de ultima generación, garantizando una experiencia moderna.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+    else
+    {
+
+
+
+
+
+        <h1 id="titulo">BIENVENIDO </h1>
+
+        <hr />
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item border-bottom">
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    <a id="link" class="nav-link" href="@Url.Action("AgregarCarrito", "Carrito")">
+                        <img src="~/Assets/img/shopcart.png" alt="..." style="width: 30px; height: 30px; position: relative; margin:20px " />
+                    </a>
+                }
+            </li>
+
+            <li id="nav" class="nav-item border-bottom">
+                <a id="link" class="nav-link" href="#">@Html.ActionLink("Productos", "About", "Home", new { area = "" }, new { @class = "nav-link" })</a>
+            </li>
+            <li id="nav" class="nav-item border-bottom">
+                <a id="link" class="nav-link" href="#">@Html.ActionLink("Historial de Compras", "Detail", "Venta", new { area = "" }, new { @class = "nav-link" })</a>
+            </li>
+
+        </ul>
+
+        <section id="hero" class="d-flex justify-content-center align-items-center">
+            <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col">
+                    <div class="col">
+
+                        <a href="@Url.Action("About", "Home")">
+                            <img src="~/Assets/img/SHOWHITE-removebg-preview.png"S alt="..." style="width: 300px; height: 300px; position: relative; margin:90px " />
+                        </a>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    }
+
+
+</div>

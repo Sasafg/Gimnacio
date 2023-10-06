@@ -1,0 +1,62 @@
+﻿@using PA_PROYECTO_FINAL.Models;
+
+
+@model Producto
+
+<a href="">
+    <img src="~/Assets/img/Create.png" class="img-fluid" alt="..."
+         style="height: 300px; width: 600px; justify-content:center; position:relative">
+</a>
+<p>
+    <script>
+    document.getElementById("volverInicio").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    });
+    </script>
+</p>
+
+<hr />
+
+
+@using (Html.BeginForm())
+{
+    <div>
+
+
+        <ul>  @Html.LabelFor(model => model.IdProducto)    </ul>
+
+        <ul>   @Html.TextBoxFor(model => model.IdProducto)    </ul>
+
+
+        <ul>   @Html.LabelFor(model => model.nombreProducto)    </ul>
+
+        <ul>  @Html.TextBoxFor(model => model.nombreProducto)    </ul>
+
+        <ul> @Html.LabelFor(model => model.precio)    </ul>
+        <ul>  @Html.TextBoxFor(model => model.precio) </ul>
+
+        <ul> @Html.LabelFor(model => model.Foto)    </ul>
+        <ul>  @Html.TextBoxFor(model => model.Foto) </ul>
+
+
+    </div>
+    <H6>Las fotos deben estar previamente subidas en firebase y se coloca el link en "Foto"</H6>
+
+
+
+    <p>
+        <button type="submit" value="Create" class="btn btn-outline-secondary">Subir nuevo producto</button>
+
+
+
+        <button id="volverInicio" class="btn btn-outline-dark">Volver al Inicio</button>
+
+        <script>
+    document.getElementById("volverInicio").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    });
+        </script>
+    </p>
+
+
+        }

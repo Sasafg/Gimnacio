@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "AgregarCarrito";
+}
+
+<a href="">
+    <img src="~/Assets/img/13.png" class="img-fluid" alt="..."
+         style="height: 300px; width: 600px; justify-content:center; position:relative">
+</a>
+
+<p>
+    <button id="volverInicio" class="btn btn-outline-dark">Volver al Inicio</button>
+
+    <script>
+    document.getElementById("volverInicio").addEventListener("click", function() {
+        window.location.href = "@Url.Action("Index", "Home")";
+    });
+    </script>
+</p>
+
+<hr />
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{double total = 0; }
+        @if (Session["Carrito"] != null)
+
+        {
+            foreach (var item in Session["Carrito"] as List<PA_PROYECTO_FINAL.Models.cCarrito>)
+            {
+                total += (double)(item._cantidad * item._producto.precio);
+                <tr>
+
+
+
+                    <td>@item._producto.IdProducto</td>
+                    <td>@item._producto.nombreProducto</td>
+                    <td>@String.Format("{0:C}", item._producto.precio)</td>
+                    <td>@item._cantidad</td>
+                    <td>@String.Format("{0:C}", item._cantidad * item._producto.precio)</td>
+
+                    <td>@Html.ActionLink("Eliminar", "Delete", "Carrito", new { Id = item._producto.IdProducto }, null)</td>
+
+                    @if (!string.IsNullOrEmpty(ViewBag.MensajeAlerta))
+                    {
+                        <script>
+                            var mensaje = '@ViewBag.MensajeAlerta';
+                             alert(mensaje);
+                        </script>
+                    }
+
+                </tr>
+
+            }
+        }
+
+    </tbody>
+
+
+
+
+    <tfoot>
+        <tr>
+            <th colspan="4">Total</th>
+            <th>@String.Format("{0:C}", total) </th>
+        </tr>
+    </tfoot>
+</table>
+
+<div id="btn">
+
+    @Html.ActionLink("Agregar más productos", "About", "Home", null, new { @class = "btn btn-secondary" })
+
+    @Html.ActionLink("Proceder a pagar", "FinalizaCompra", "Carrito", null, new { @class = "btn btn-success" })
+</div>
